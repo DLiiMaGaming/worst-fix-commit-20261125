@@ -7,12 +7,18 @@ Writes a single commit message (one line, <= 100 characters) to
 
 import os
 
-ENTRY = "fix: dedupe duplicate employee records; merged the twins into one badge, one salary, one chair"
+ENTRY = (
+    "fix: dedupe duplicate employee records; "
+    "merged the twins into one badge, one salary, one chair"
+)
+
+
+OUTPUT_PATH = "/output/entry.txt"
 
 
 def main() -> None:
-    os.makedirs("/output", exist_ok=True)
-    with open("/output/entry.txt", "w", encoding="utf-8", newline="") as f:
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+    with open(OUTPUT_PATH, "w", encoding="utf-8", newline="") as f:
         f.write(ENTRY)
 
 
